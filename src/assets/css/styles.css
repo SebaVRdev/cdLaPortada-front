@@ -1,0 +1,165 @@
+/* Declaracion de variables */
+:root{
+    --dark-cyan: hsl(185, 75%, 39%);
+    --very-dark-desaturated: hsl(229, 10%, 46%);
+    --dark-blue: hsl(227, 10%, 46%);
+    --dark-gar: hsl(0, 0%, 59%);
+}
+
+html{
+    background: url('../img/boca-logo.png')no-repeat rgba(24, 10, 133, 0.88);
+    background-size: cover;
+    background-position: unset center;
+    height: calc(100vh - 80px);
+    box-sizing: border-box;
+}
+
+*, *:before, *:after{
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+nav{
+    background: rgb(202,228,11);
+    background: linear-gradient(90deg, rgba(202,228,11,0.8801645658263305) 26%, rgba(1,18,94,1) 50%);
+    height: 80px;
+    width: 100%;
+}
+
+.enlace{
+    position: absolute;
+    padding: 20px 50px;
+}
+
+.logo{
+    height: 40px;
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+nav ul li a{
+    color: white;
+    font-size: 18px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+li a.active, li a:hover{
+    background: #000090;
+    transition: .5s;
+}
+
+.checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#check{
+    display: none;
+}
+
+section{
+    background: url('../img/boca-logo.png')no-repeat rgba(24, 10, 133, 0.88);
+    background-size: cover;
+    background-position: unset center;
+    height: calc(100vh - 80px);
+}
+
+/* CARD */
+
+/* Todo lo que esta dentro de article esta en flex */
+h1{
+    color: aliceblue;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;  /* Para que funcione debemos dar el height */
+    height: 100vh; /* vh: view height  => toma el tamaño de la ventana */
+}
+
+.flex article{
+    margin: 3px;
+}
+
+.card{
+    background-color: white;
+    width: 326px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 10px;
+    align-content: center;
+}
+
+.card-body-img{
+    height: 50%;
+    width: 50%;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 952px) {
+    .enlace{
+        padding-left: 20px;
+    }    
+    nav ul li a{
+        font-size: 16px;
+    }
+}
+@media (max-width: 858px) {
+    .checkbtn{
+        display: block;
+    }
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: rgba(1,18,94,1);
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+
+    nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav ul li a{
+        font-size: 20px;
+    }
+    li a:hover, li.active{
+        background: none;
+        color: red;
+    }
+    #check:checked ~ ul{
+        left: 0;
+    }
+    
+}
+@media (max-width: 600px) {
+       
+}
