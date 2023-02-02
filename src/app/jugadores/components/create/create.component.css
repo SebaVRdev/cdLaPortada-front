@@ -1,0 +1,97 @@
+/* Modificamos el h2 dentro del container */
+.container{
+    align-content: center;
+}
+
+.container h2{
+    color: yellow;
+    display: block;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+/* Maquetacion de formulario de forma general, cualquier formulario que se haga en esta pagina se veria igual */
+form{
+    width: 80%; /* Le damos un ancho del 50% de la pagina */
+}
+
+form label{
+    color: #ccc;
+    display: block;
+    width: 100%;
+    margin-top: 10px; /* Separamos de lo de arriba */
+    margin-bottom: 5px; /* Separarlos del input */
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="email"],
+form textarea{
+    width: 60%;
+    padding: 5px;
+}
+
+/* Estilos al boton del formulario */
+form button,
+form input[type="submit"]{
+    display: block;
+    font-size: 17px;
+    padding: 10px;
+    margin-top: 15px;
+    color: white;
+    background: rgba(255, 225, 1, 0.8);
+    border: 1px solid rgba(13, 67, 133, 1);
+    cursor: pointer;
+}
+
+/* Hover del button */
+form button:hover,
+form input[type="submit"]:hover{
+    background: rgba(255, 225, 1, 0.8);
+    border: 1px solid rgba(13, 67, 133, 1);
+}
+
+form input[disabled]{
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Estilos de los soan de validacion */
+.form_error{
+    padding: 3px;
+    font-size: 15px;
+    background: red;
+    color: white;
+    margin-left: 5px;
+}
+
+/* Estilo al mensaje */
+.message{
+    width: 50%;
+    padding: 5px;
+    border: 1pc solid #eee;
+}
+
+.success{
+    background: green;
+    color: white;
+}
+.message a{
+    color: white;
+}
+
+.failed{
+    background: red;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    form input[type="text"],
+    form input[type="number"],
+    form input[type="email"],
+    form textarea{
+    width: 100%;
+    padding: 5px;
+}
+}

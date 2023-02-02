@@ -17,6 +17,13 @@ export class JugadoresService {
   }
 
   getJugadores(): Observable<any>{
-      return this.http.get(this.URL+'players'); 
+      return this.http.get(this.URL+'player'); 
+  }
+
+  saveJugadores(jugador: Jugador): Observable<any>{
+    let params = JSON.stringify(jugador)
+    //Headers
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this.http.post(this.URL+'/save',params,{headers:headers});
   }
 }

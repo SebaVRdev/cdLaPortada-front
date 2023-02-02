@@ -21,12 +21,11 @@
     <img src="../assets/img/boca-logo.png" class="logo">
   </a>
   <ul>
-    <li><a routerLink='/home' [routerLinkActive]="['active']">Inicio</a></li>
+    <li><a routerLink='/home/home' [routerLinkActive]="['active']">Inicio</a></li>
     <li><a href="#">{{title}}</a></li>
-    <li><a href="#">Series</a></li>
-    <li><a routerLink='/jugadores' [routerLinkActive]="['active']">Jugadores</a></li>
+    <li><a routerLink="/home/series">Series</a></li>
+    <li><a routerLink='/home/jugadores' [routerLinkActive]="['active']">Jugadores</a></li>
   </ul>
 </nav>
 
-
-  <router-outlet></router-outlet>
+<router-outlet></router-outlet>

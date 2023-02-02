@@ -1,11 +1,11 @@
 <h1>{{title}}</h1>
-<main class="flex">
-    <article *ngFor="let jugador of jugadores "  class="card">
+<div class="container-card">
+    <article *ngFor="let jugador of jugadores"  class="card">
         <img src="../../../assets/img/bg-card.svg" alt="" class="card-header">
         <div class="card-body">
             <img src="../../../assets/img/user.png" alt="" class="card-body-img">
-            <h2 class="card-body-title">{{jugador.name}}<span> {{jugador.years}} </span></h2>
-            <p class="card-body-text">{{jugador.description}}</p>
+            <h2 class="card-body-title">{{jugador.name}}</h2>
+            <p class="card-body-text">{{jugador.position}}</p>
         </div>
         <div class="card-footer">
             <div class="card-footer-social">
@@ -22,4 +22,4 @@
             </div>
         </div>
     </article>
-</main>
+</div>
