@@ -7,12 +7,12 @@
 }
 
 html{
-    background: url('../img/boca-logo.png')no-repeat rgba(24, 10, 133, 0.88);
-    background-size: cover;
-    background-position: unset center;
-    height: calc(100vh - 80px);
+    background: url('../img/boca-logo.png')no-repeat rgba(24, 10, 133, 1);
     box-sizing: border-box;
+    background-position: center center;
+    height: calc(100vh - 80px);
 }
+
 
 *, *:before, *:after{
     box-sizing: inherit;
@@ -37,7 +37,7 @@ nav{
 }
 
 .logo{
-    height: 40px;
+    height: 50px;
 }
 
 nav ul{
@@ -78,13 +78,6 @@ li a.active, li a:hover{
     display: none;
 }
 
-section{
-    background: url('../img/boca-logo.png')no-repeat rgba(24, 10, 133, 0.88);
-    background-size: cover;
-    background-position: unset center;
-    height: calc(100vh - 80px);
-}
-
 /* CARD */
 
 /* Todo lo que esta dentro de article esta en flex */
@@ -92,31 +85,71 @@ h1{
     color: aliceblue;
 }
 
-.flex{
+.container-card{
     display: flex;
-    justify-content: center;
-    align-items: center;  /* Para que funcione debemos dar el height */
-    height: 100vh; /* vh: view height  => toma el tamaño de la ventana */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 15px
 }
 
-.flex article{
-    margin: 3px;
-}
 
 .card{
+    margin: 3px;
     background-color: white;
-    width: 326px;
+    width: 250px;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 10px;
+    box-shadow: 0 5px 5px rgba(1,18,94,1);
     align-content: center;
 }
 
+.card:hover{
+    width: 290px;
+    transition: all 500ms;
+}
+
+.card-header{
+    width: 100%;
+    display: block;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid gray;
+}
+
 .card-body-img{
-    height: 50%;
+    border: 5px solid white;
+    border-radius: 50%;
+    margin-top: calc(-80px - 5px);
+    height: 30%;
     width: 50%;
 }
 
+.card-body-title{
+    font-size: 20px;
+}
+
+.card-body-text{
+    color: gray;
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.card-footer{
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-footer-social{
+    text-align: center;
+}
+.card-footer-social p{
+    letter-spacing: 1px;
+}
 
 /* RESPONSIVE */
 
@@ -127,6 +160,7 @@ h1{
     nav ul li a{
         font-size: 16px;
     }
+    
 }
 @media (max-width: 858px) {
     .checkbtn{
@@ -158,8 +192,43 @@ h1{
     #check:checked ~ ul{
         left: 0;
     }
+}
+
+/* @media (max-width: 400px) {
+    .checkbtn{
+        display: block;
+    }
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: rgba(1,18,94,1);
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+
+    nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav ul li a{
+        font-size: 20px;
+    }
+    li a:hover, li.active{
+        background: none;
+        color: red;
+    }
+    #check:checked ~ ul{
+        left: 0;
+    }
+    .container-card{
+        display: block;
+    }    
+    .card{
+        width: 30vh;
+    }
     
-}
-@media (max-width: 600px) {
-       
-}
+} */

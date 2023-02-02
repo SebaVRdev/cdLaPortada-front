@@ -1,0 +1,43 @@
+<div class="container">
+    <h2>{{title}}</h2>
+
+    <!-- Mensaje en caso de que se envie agregue bien el proyecto -->
+    <div class="message success" *ngIf="status == 'success'">
+        El proyecto se ha creado correctamente, puedes <a [routerLink]="['/jugador', saveJugador.id]">Verlo aqui</a>
+    </div>
+
+    <div class="message failed" *ngIf="status == 'failed'">
+        El proyecto no se ha podido crear
+    </div>
+
+    <form #playerForm="ngForm" (ngSubmit)="onSubmit(playerForm)">
+        <p>
+            <label for="name">Nombre</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="jugador.name" required> <!-- [(ngModel)]="jugador.name" SIRVE PARA MODIFICAR LA PROPIEDAD DEL OBJETO -->
+            <span class="form_error" *ngIf="name.touched && !name.valid">
+                El nombre es obligatorio
+            </span>
+        </p>
+        <p>
+            <label for="posicion">Posicion</label>
+            <textarea type="text" name="posicion" #posicion="ngModel" [(ngModel)]="jugador.position" required></textarea>
+            <span class="form_error" *ngIf="posicion.touched && !posicion.valid">
+                La posicion es obligatoria
+            </span>
+        </p>
+        <p>
+            <label for="years">Edad</label>
+            <input type="number" name="years" #years="ngModel" [(ngModel)]="jugador.years" required>
+        </p>
+        <p>
+            <label for="image">Imagen del proyecto</label>
+            <input type="file" placeholder="Subir imagen" name="image" (change)="fileChangeEvent($event)"> <!-- Esto es para cuando ocurra un cambio en el input, mandamos ese metodo y la pasamos los eventos que tendran todos los datos que agarra el input, el fuchero elegido, el nombre, etc -->
+        </p>
+
+        <input type="submit" value="Enviar" [disabled]="!playerForm.form.valid"/>
+    </form>
+
+</div>
+
+
+<!-- Creamos el formulario -->

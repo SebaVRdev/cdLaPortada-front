@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 
 //Traemos modelo para manejo de jugadores
 import { Jugador } from 'src/app/models/jugador';
@@ -11,6 +11,7 @@ import { JugadoresService } from 'src/app/services/jugadores/jugadores.service';
   templateUrl: './jugadores.component.html',
   styleUrls: ['./jugadores.component.css']
 })
+
 export class JugadoresComponent {
 
   public title: string;
@@ -25,7 +26,6 @@ export class JugadoresComponent {
     //A penas se cargue la vista cargamos los jugadores
     this.getJugadores();
   }
-
 
   getJugadores(){
     this._jugadoresService.getJugadores().subscribe(
