@@ -1,4 +1,4 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 //Traemos modelo para manejo de jugadores
 import { Jugador } from 'src/app/models/jugador';
@@ -16,10 +16,12 @@ export class JugadoresComponent {
 
   public title: string;
   public jugadores: Jugador[];
+  public page: number; //Recoge el numero de pagina en la que estamos 
 
   constructor( private _jugadoresService: JugadoresService ){
     this.title = "Jugadores"
     this.jugadores = new Array();
+
   }
 
   ngOnInit(): void {

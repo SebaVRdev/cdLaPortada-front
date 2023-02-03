@@ -1,40 +1,10 @@
 <div class="container">
     <div class="grid">
-      <div class="grid-item">
+      <div *ngFor="let serie of series" class="grid-item">
         <div class="card">
           <img src="../../../../assets/img/serie1.jpg" alt="" class="card-img" />
           <div class="card-content">
-            <h2 class="card-header">TITLE</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto
-              aperiam ducimus harum earum, quam quod nam vel sint! Deserunt, id!
-            </p>
-            <button class="card-btn">
-                Ver mas <span>&rAarr;</span>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="grid-item">
-        <div class="card">
-          <img src="../../../../assets/img/serie1.jpg" alt="" class="card-img" />
-          <div class="card-content">
-            <h2 class="card-header">TITLE</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto
-              aperiam ducimus harum earum, quam quod nam vel sint! Deserunt, id!
-            </p>
-            <button class="card-btn">
-                Ver mas <span>&rAarr;</span>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="grid-item">
-        <div class="card">
-          <img src="../../../../assets/img/serie1.jpg" alt="" class="card-img" />
-          <div class="card-content">
-            <h2 class="card-header">TITLE</h2>
+            <h2 class="card-header">{{serie.name}}</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto
               aperiam ducimus harum earum, quam quod nam vel sint! Deserunt, id!

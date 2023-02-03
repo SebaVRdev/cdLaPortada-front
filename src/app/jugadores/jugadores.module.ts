@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { JugadoresRoutingModule } from './jugadores-routing.module'; 
+import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { JugadoresComponent } from './components/jugadores/jugadores.component';
 import { CreateComponent } from './components/create/create.component';
 import { HomeComponent } from './components/home/home.component';
-import { FormsModule } from '@angular/forms';
 import { SeriesComponent } from './components/series/series.component';
 
 @NgModule({
@@ -18,8 +18,9 @@ import { SeriesComponent } from './components/series/series.component';
   ],
   imports: [
     CommonModule,
-    JugadoresRoutingModule,
-    FormsModule
+    NgxPaginationModule,
+    FormsModule,
+    JugadoresRoutingModule
   ]
 })
 export class JugadoresModule { }

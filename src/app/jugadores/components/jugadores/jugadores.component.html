@@ -1,6 +1,6 @@
 <h1>{{title}}</h1>
 <div class="container-card">
-    <article *ngFor="let jugador of jugadores"  class="card">
+    <article *ngFor="let jugador of jugadores | paginate: { itemsPerPage: 3, currentPage: page } "  class="card">
         <img src="../../../assets/img/bg-card.svg" alt="" class="card-header">
         <div class="card-body">
             <img src="../../../assets/img/user.png" alt="" class="card-body-img">
@@ -12,14 +12,19 @@
                 <h3>Edad</h3>
                 <p>{{jugador.years}}</p>
             </div>
-            <div class="card-footer-social">
+            <div *ngIf="jugador.position !== 'Portero'" class="card-footer-social">
                 <h3>Goles</h3>
-                <p>34</p>
+                <p>{{jugador.goles}}</p>
+            </div>
+            <div *ngIf="jugador.position === 'Portero'" class="card-footer-social">
+                <h3>Salvadas</h3>
+                <p>{{jugador.saves}}</p>
             </div>
             <div class="card-footer-social">
                 <h3>Partidos</h3>
-                <p>15</p>
+                <p>{{jugador.partidos}}</p>
             </div>
         </div>
     </article>
 </div>
+<pagination-controls class="pagination" (pageChange)="page = $event" [responsive]="true" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>

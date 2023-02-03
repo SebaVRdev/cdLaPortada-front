@@ -27,8 +27,6 @@ export class CreateComponent implements OnInit {
   ){
     this.title = 'Ingresar Jugador';
     this.status = "";
-    this.saveJugador = new Jugador('','',0,'',true);
-    this.jugador = new Jugador('','',0,'',true); //Objeto por defecto que se ira modificando con el formulario
     this.fileToUpload =  new Array();
   }
 
