@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FolderTokenService } from './services/folder-token/folder-token.service';
 
+//Services
+import { FolderTokenService } from './services/folder-token/folder-token.service';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +16,10 @@ export class AppComponent {
   ){
     this.setSession();
   }
-
+  
+  //Metodo para guardad la session 
   setSession(){
+    console.log("Guardando la Session")
     this.serviceFolderToken.qpIsiInsert();
   }
 }

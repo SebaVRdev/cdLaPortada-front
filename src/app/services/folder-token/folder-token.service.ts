@@ -17,7 +17,6 @@ export class FolderTokenService {
       Math.random().toString(36).substr(2, 1).toUpperCase(),
       seed.substr(-1)
     ];
-
     return keyArr.join('');
   }
 

@@ -1,9 +1,5 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-
 .container{
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,12 +84,23 @@
     margin-left: 1.5rem;
 }
 
-@media only screen and (max-width: 60em) {
+@media (max-width: 600px) {
     body{
         padding: 3rem;
     }
 
     .grid{
+        margin: 3px;
+        grid-gap: 3rem;
+    }
+}
+@media (max-width: 400px) {
+    body{
+        padding: 3rem;
+    }
+
+    .grid{
+        margin: 3px;
         grid-gap: 3rem;
     }
 }

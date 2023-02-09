@@ -1,18 +1,13 @@
-/* Declaracion de variables */
-:root{
-    --dark-cyan: hsl(185, 75%, 39%);
-    --very-dark-desaturated: hsl(229, 10%, 46%);
-    --dark-blue: hsl(227, 10%, 46%);
-    --dark-gar: hsl(0, 0%, 59%);
-}
-
 html{
     background: url('../img/boca-logo.png')no-repeat rgba(24, 10, 133, 1);
     box-sizing: border-box;
     background-position: center center;
-    height: calc(100vh - 80px);
 }
 
+body{
+    position: relative;
+    min-height: 100vh;
+}
 
 *, *:before, *:after{
     box-sizing: inherit;
@@ -24,7 +19,7 @@ html{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-nav{
+.header-nav{
     background: rgb(202,228,11);
     background: linear-gradient(90deg, rgba(202,228,11,0.8801645658263305) 26%, rgba(1,18,94,1) 50%);
     height: 80px;
@@ -40,18 +35,18 @@ nav{
     height: 50px;
 }
 
-nav ul{
+.header-nav ul{
     float: right;
     margin-right: 20px;
 }
 
-nav ul li{
+.header-nav ul li{
     display: inline-block;
     line-height: 80px;
     margin: 0 5px;
 }
 
-nav ul li a{
+.header-nav ul li a{
     color: white;
     font-size: 18px;
     padding: 7px 13px;
@@ -78,7 +73,6 @@ li a.active, li a:hover{
     display: none;
 }
 
-/* CARD */
 
 /* Todo lo que esta dentro de article esta en flex */
 h1{
@@ -86,13 +80,24 @@ h1{
 }
 
 
+/* FOOTER */
+
+.footer{
+    background-color: rgb(202,228,11);
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    padding: 1em 0;
+    width: 100%;
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 952px) {
     .enlace{
         padding-left: 20px;
     }    
-    nav ul li a{
+    .header-nav ul li a{
         font-size: 16px;
     }   
 }
@@ -101,7 +106,7 @@ h1{
     .checkbtn{
         display: block;
     }
-    ul{
+    .header-nav ul{
         position: fixed;
         width: 100%;
         height: 100vh;
@@ -112,12 +117,12 @@ h1{
         transition: all .5s;
     }
 
-    nav ul li{
+    .header-nav ul li{
         display: block;
         margin: 50px 0;
         line-height: 30px;
     }
-    nav ul li a{
+    .header-nav ul li a{
         font-size: 20px;
     }
     li a:hover, li.active{

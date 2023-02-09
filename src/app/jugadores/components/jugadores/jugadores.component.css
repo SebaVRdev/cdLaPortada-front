@@ -1,16 +1,23 @@
 
 .container-card{
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin: 15px
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
 }
 
+.grid{
+    display: grid;
+    width: 114em;
+    grid-gap: 6rem;
+    grid-template-columns: repeat(auto-fit, minmax(30rem,1fr));
+    align-items: start;
+}
 
 .card{
     margin: 3px;
     background-color: white;
-    width: 250px;
+    width: 530px;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 5px 5px rgba(1,18,94,1);
@@ -39,17 +46,17 @@
     border: 5px solid white;
     border-radius: 50%;
     margin-top: calc(-80px - 5px);
-    height: 30%;
+    height: 150px;
     width: 50%;
 }
 
 .card-body-title{
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .card-body-text{
     color: gray;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     margin-top: 0;
     margin-bottom: 2rem;
 }

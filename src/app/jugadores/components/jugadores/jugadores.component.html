@@ -1,30 +1,32 @@
 <h1>{{title}}</h1>
 <div class="container-card">
-    <article *ngFor="let jugador of jugadores | paginate: { itemsPerPage: 3, currentPage: page } "  class="card">
-        <img src="../../../assets/img/bg-card.svg" alt="" class="card-header">
-        <div class="card-body">
-            <img src="../../../assets/img/user.png" alt="" class="card-body-img">
-            <h2 class="card-body-title">{{jugador.name}}</h2>
-            <p class="card-body-text">{{jugador.position}}</p>
-        </div>
-        <div class="card-footer">
-            <div class="card-footer-social">
-                <h3>Edad</h3>
-                <p>{{jugador.years}}</p>
+    <div class="grid">
+        <article *ngFor="let jugador of jugadores | paginate: { itemsPerPage: 3, currentPage: page } "  class="card">
+            <img src="../../../assets/img/bg-card.svg" alt="" class="card-header">
+            <div class="card-body">
+                <img src="{{url+'get-image/'+jugador.image}}" alt="" class="card-body-img">
+                <h2 class="card-body-title">{{jugador.name}}</h2>
+                <p class="card-body-text">{{jugador.position}}</p>
             </div>
-            <div *ngIf="jugador.position !== 'Portero'" class="card-footer-social">
-                <h3>Goles</h3>
-                <p>{{jugador.goles}}</p>
+            <div class="card-footer">
+                <div class="card-footer-social">
+                    <h3>Edad</h3>
+                    <p>{{jugador.years}}</p>
+                </div>
+                <div *ngIf="jugador.position !== 'Portero'" class="card-footer-social">
+                    <h3>Goles</h3>
+                    <p>{{jugador.goles}}</p>
+                </div>
+                <div *ngIf="jugador.position === 'Portero'" class="card-footer-social">
+                    <h3>Salvadas</h3>
+                    <p>{{jugador.saves}}</p>
+                </div>
+                <div class="card-footer-social">
+                    <h3>Partidos</h3>
+                    <p>{{jugador.partidos}}</p>
+                </div>
             </div>
-            <div *ngIf="jugador.position === 'Portero'" class="card-footer-social">
-                <h3>Salvadas</h3>
-                <p>{{jugador.saves}}</p>
-            </div>
-            <div class="card-footer-social">
-                <h3>Partidos</h3>
-                <p>{{jugador.partidos}}</p>
-            </div>
-        </div>
-    </article>
+        </article>
+    </div>
 </div>
-<pagination-controls class="pagination" (pageChange)="page = $event" [responsive]="true" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+<pagination-controls class="pagination" [responsive]="true" (pageChange)="page = $event" [responsive]="true" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>

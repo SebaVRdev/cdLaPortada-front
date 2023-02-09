@@ -8,7 +8,7 @@ export class Jugador{
         public goles: number,
         public saves: number,
         public state: boolean,
-        //public image: string,
+        public image: string,
     ){
 
     }

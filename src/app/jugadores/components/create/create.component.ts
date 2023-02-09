@@ -28,6 +28,7 @@ export class CreateComponent implements OnInit {
     this.title = 'Ingresar Jugador';
     this.status = "";
     this.fileToUpload =  new Array();
+    this.jugador = new Jugador("","",0,"",0,0,0,true,"");
   }
 
   ngOnInit(): void {
@@ -39,7 +40,8 @@ export class CreateComponent implements OnInit {
     this.jugadoresService.saveJugadores(this.jugador).subscribe(
       response => {
         if (response){
-          
+          this.saveJugador = response;
+          this.status = 'success';
         }
         else{
           this.status = 'failed';
