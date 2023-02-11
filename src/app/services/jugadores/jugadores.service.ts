@@ -21,10 +21,11 @@ export class JugadoresService {
   }
 
   saveJugadores(jugador: Jugador): Observable<any>{
-    console.log(jugador);
     let params = JSON.stringify(jugador)
     //Headers
     let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this.http.post(this.URL+'player',params,{headers:headers});
+    const response = this.http.post(this.URL+'player',params,{headers:headers});
+    console.log(response)
+    return response;
   }
 }

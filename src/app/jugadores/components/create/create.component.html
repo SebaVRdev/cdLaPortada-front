@@ -3,11 +3,15 @@
 
     <!-- Mensaje en caso de que se envie agregue bien el proyecto -->
     <div class="message success" *ngIf="status == 'success'">
-        El proyecto se ha creado correctamente, puedes <a [routerLink]="['/jugador', saveJugador.id]">Verlo aqui</a>
+        El jugador se ha guardado correctamente, puedes <a [routerLink]="['/jugador', saveJugador.id]">Verlo aqui</a>
     </div>
 
     <div class="message failed" *ngIf="status == 'failed'">
-        El proyecto no se ha podido crear
+        El jugador no se ha podido guardar!
+    </div>
+
+    <div class="message failed" *ngIf="status == 'img-failed'">
+        No se pudo guardar la imagen del jugador!
     </div>
 
     <form #playerForm="ngForm" (ngSubmit)="onSubmit(playerForm)">

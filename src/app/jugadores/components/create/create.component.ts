@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Jugador } from 'src/app/models/jugador';
 
 import { JugadoresService } from 'src/app/services/jugadores/jugadores.service';
+import { UploadImageService } from 'src/app/services/upload-image/upload-image.service';
 
 @Component({
   selector: 'app-create',
@@ -22,9 +23,13 @@ export class CreateComponent implements OnInit {
 
   public fileToUpload: Array<File>; //Archivos para subir
 
+  private url: string;
+
   constructor(
-    private jugadoresService: JugadoresService
+    private jugadoresService: JugadoresService,
+    private uploadService: UploadImageService
   ){
+    this.url = 'http://localhost:2000/';
     this.title = 'Ingresar Jugador';
     this.status = "";
     this.fileToUpload =  new Array();
@@ -33,21 +38,30 @@ export class CreateComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
   onSubmit(form:any){
-
     //Cuando hacemos onSubmit utilizamos el metodo de los servicios
     this.jugadoresService.saveJugadores(this.jugador).subscribe(
       response => {
-        if (response){
-          this.saveJugador = response;
-          this.status = 'success';
+        console.log(response)
+        if (response.player){
+          //Siempre que se guarde e player le agregamos su imagen
+          this.saveJugador = response.player;
+          this.uploadService.makeFileRequest(this.url+'player/upload-img/'+this.saveJugador.id,[],this.fileToUpload,'image').subscribe(
+            res => {
+              this.status = 'success';
+            },
+            err => {
+              this.status = 'img-failed';    
+            } 
+          );
         }
         else{
           this.status = 'failed';
         }
       },
-      error => console.log(error)
+      error => {
+        console.log(error.message)}
     )
   };
 

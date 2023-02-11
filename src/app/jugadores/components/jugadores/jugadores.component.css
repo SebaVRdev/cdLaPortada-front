@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 100px;
+    margin-bottom: 20px;
 }
 
 .grid{
@@ -71,4 +71,14 @@
 }
 .card-footer-social p{
     letter-spacing: 1px;
+}
+
+.container-pagination{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.pagination{
+    align-items: center;
 }
