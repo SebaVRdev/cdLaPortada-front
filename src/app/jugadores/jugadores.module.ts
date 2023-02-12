@@ -10,14 +10,15 @@ import { HomeComponent } from './components/home/home.component';
 import { SeriesComponent } from './components/series/series.component';
 
 //Routes
-import { JugadoresRoutingModule } from './jugadores-routing.module'; 
+import { JugadoresRoutingModule } from './jugadores-routing.module';
+import { FiltroPipe } from './pipes/filtro.pipe'; 
 
 @NgModule({
   declarations: [
     HomeComponent,
     JugadoresComponent, 
     CreateComponent, 
-    SeriesComponent, 
+    SeriesComponent, FiltroPipe, 
   ],
   imports: [
     CommonModule,

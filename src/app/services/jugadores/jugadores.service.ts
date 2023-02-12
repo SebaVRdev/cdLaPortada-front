@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Jugador } from 'src/app/models/jugador';
 
 @Injectable({
@@ -17,7 +18,13 @@ export class JugadoresService {
   }
 
   getJugadores(): Observable<any>{
-      return this.http.get(this.URL+'player'); 
+      return this.http.get(this.URL+'player').pipe(
+        map( resp => resp )
+      )
+  }
+
+  nameToLowerCase(){
+
   }
 
   saveJugadores(jugador: Jugador): Observable<any>{
@@ -25,7 +32,6 @@ export class JugadoresService {
     //Headers
     let headers = new HttpHeaders().set('Content-Type','application/json');
     const response = this.http.post(this.URL+'player',params,{headers:headers});
-    console.log(response)
     return response;
   }
 }

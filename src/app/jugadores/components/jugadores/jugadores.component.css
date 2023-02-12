@@ -1,3 +1,7 @@
+.name-input{
+    margin: 15px;
+    width: 50%;
+}
 
 .container-card{
     display: flex;
@@ -81,4 +85,9 @@
 
 .pagination{
     align-items: center;
+}
+@media (max-width: 600px) {
+    .name-input{
+        width: 100%;
+    }
 }

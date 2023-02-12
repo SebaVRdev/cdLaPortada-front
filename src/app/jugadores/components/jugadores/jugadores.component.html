@@ -1,7 +1,14 @@
 <h1>{{title}}</h1>
+<input 
+class="name-input" 
+type="text" 
+placeholder="Ingrese el nombre"
+#txtSearch
+(keyup)="onSearchPlayer(txtSearch.value)"
+>
 <div class="container-card">
     <div class="grid">
-        <article *ngFor="let jugador of jugadores | paginate: { itemsPerPage: 3, currentPage: page } "  class="card">
+        <article *ngFor="let jugador of jugadores | filtro:search | paginate: { itemsPerPage: 3, currentPage: page } "  class="card">
             <img src="../../../assets/img/bg-card.svg" alt="" class="card-header">
             <div class="card-body">
                 <img src="{{url+'get-image/'+jugador.image}}" alt="" class="card-body-img">
