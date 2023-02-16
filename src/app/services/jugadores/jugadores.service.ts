@@ -23,8 +23,18 @@ export class JugadoresService {
       )
   }
 
-  nameToLowerCase(){
-
+  playerForName(name: string = ''): Observable<boolean>{
+    return this.http.get(this.URL+'player-name/' + name).pipe(
+      map( res => {
+        console.log(res) 
+        if (res) {
+          return true;
+        }
+        else{
+          return false;
+        }
+      })
+    )
   }
 
   saveJugadores(jugador: Jugador): Observable<any>{

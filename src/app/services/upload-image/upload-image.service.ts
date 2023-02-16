@@ -13,6 +13,7 @@ export class UploadImageService {
   }
 
   makeFileRequest(url: string, params: Array<string>, files: Array<File>, name: string):Observable<any> {
+    console.log("Entrando a guardado de imagen!")
     //Definios la peticion 
     let formData = new FormData();
 
@@ -20,8 +21,6 @@ export class UploadImageService {
     for(let i = 0; i < files.length; i++){  
         formData.append(name,files[i], files[i].name); //agregamos el nombre que indiquemos, adjuntamos el fichero y recogemos el nombre
     }
-
-    //console.log(formData);
 
     //Al tener el formData en metodo post
     return this._http.post(url,formData);

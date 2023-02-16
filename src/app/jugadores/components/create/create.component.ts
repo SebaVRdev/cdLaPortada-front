@@ -16,6 +16,7 @@ import { UploadImageService } from 'src/app/services/upload-image/upload-image.s
 export class CreateComponent implements OnInit {
   //Creamos propiedad para titulo del componente
   public title: string;
+  public existName: boolean;
   public status: string;
   public saveJugador: Jugador;
 
@@ -33,7 +34,8 @@ export class CreateComponent implements OnInit {
     this.title = 'Ingresar Jugador';
     this.status = "";
     this.fileToUpload =  new Array();
-    this.jugador = new Jugador("","",0,"",0,0,0,true,"");
+    this.jugador = new Jugador("","",18,"",0,0,0,true,"");
+    this.existName = false
   }
 
   ngOnInit(): void {
@@ -47,21 +49,24 @@ export class CreateComponent implements OnInit {
         if (response.player){
           //Siempre que se guarde e player le agregamos su imagen
           this.saveJugador = response.player;
+          console.log(this.fileToUpload);
           this.uploadService.makeFileRequest(this.url+'player/upload-img/'+this.saveJugador.id,[],this.fileToUpload,'image').subscribe(
             res => {
-              this.status = 'success';
-            },
-            err => {
-              this.status = 'img-failed';    
+              if (res.player) {
+                console.log(res)
+                this.status = 'success';
+              }
+              else{
+                this.status = 'img-failed';  
+              }
             } 
           );
         }
-        else{
-          this.status = 'failed';
-        }
       },
       error => {
-        console.log(error.message)}
+        this.status = 'failed'; 
+        console.log(error.message)
+      }
     )
   };
 
@@ -73,6 +78,16 @@ export class CreateComponent implements OnInit {
     console.log(this.fileToUpload);
   }
 
-
+  validName(){
+    this.jugadoresService.playerForName(this.jugador.name).subscribe(
+      res => {
+        this.existName = res;
+      },
+      err => {
+        console.log(err.error)
+        this.existName = false
+      }
+    )
+  }
 
 }
